@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 158 64% 52%;
+    --primary-foreground: 222 47% 11%;
+    --primary-glow: 158 64% 62%;
+
+    --secondary: 199 89% 48%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-glow: 199 89% 58%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 28% 17%;
+    --input: 215 28% 17%;
+    --ring: 158 64% 52%;
+
+    --radius: 1rem;
+
+    /* Premium effects */
+    --gradient-primary: linear-gradient(135deg, hsl(158 64% 52%) 0%, hsl(199 89% 48%) 100%);
+    --gradient-secondary: linear-gradient(180deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(158 64% 52% / 0.15) 0%, transparent 50%);
+    
+    --shadow-premium: 0 20px 60px -15px hsl(222 47% 11% / 0.8), 0 0 80px -20px hsl(158 64% 52% / 0.2);
+    --shadow-card: 0 8px 32px -8px hsl(222 47% 11% / 0.6), 0 0 0 1px hsl(215 28% 17%);
+    --shadow-glow-primary: 0 0 60px -10px hsl(158 64% 52% / 0.4), 0 0 100px -20px hsl(158 64% 52% / 0.2);
+    --shadow-glow-secondary: 0 0 60px -10px hsl(199 89% 48% / 0.4), 0 0 100px -20px hsl(199 89% 48% / 0.2);
+    
+    --glass-bg: hsl(217 33% 17% / 0.6);
+    --glass-border: hsl(215 28% 30% / 0.3);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-optical-sizing: auto;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+  
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
